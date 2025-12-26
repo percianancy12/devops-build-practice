@@ -16,13 +16,13 @@ pipeline {
             sh """
               docker login -u ${DOCKERHUB_CREDENTIALS_USR} -p ${DOCKERHUB_CREDENTIALS_PSW}
               docker tag my-react-app:latest percianancy/dev:latest
-              docker push username/dev:latest
+              docker push percianancy/dev:latest
             """
           } else if (env.BRANCH_NAME == 'main') {
             sh """
               docker login -u ${DOCKERHUB_CREDENTIALS_USR} -p ${DOCKERHUB_CREDENTIALS_PSW}
               docker tag my-react-app:latest percianancy/prod:latest
-              docker push username/prod:latest
+              docker push percianancy/prod:latest
             """
           }
         }
@@ -30,7 +30,13 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh './deploy.sh'
+        script {
+          if (env.BRANCH_NAME == 'dev') {
+            sh './deploy.sh dev'
+          } else if (env.BRANCH_NAME == 'main') {
+            sh './deploy.sh prod'
+          }
+        }
       }
     }
   }
