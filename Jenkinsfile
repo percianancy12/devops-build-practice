@@ -29,15 +29,15 @@ pipeline {
       }
     }
     stage('Deploy') {
-      steps {
-        script {
-          if (env.BRANCH_NAME == 'dev') {
-            sh './deploy.sh dev'
-          } else if (env.BRANCH_NAME == 'main') {
-            sh './deploy.sh prod'
-          }
-        }
+  steps {
+    script {
+      if (env.BRANCH_NAME == 'dev') {
+        sh './deploy.sh dev'
+      } else if (env.BRANCH_NAME == 'main') {
+        sh './deploy.sh prod'
       }
     }
+  }
+}
   }
 }

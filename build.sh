@@ -1,2 +1,5 @@
 #!/bin/bash
-docker build -t my-react-app:latest .
+APP_NAME="my-react-app"
+
+echo "Building Docker image..."
+docker build -t $APP_NAME:latest .
