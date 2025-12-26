@@ -1,2 +1,2 @@
 # devops-build-practice
-test 1
+test 2
