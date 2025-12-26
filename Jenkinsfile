@@ -33,8 +33,10 @@ pipeline {
         script {
           if (env.BRANCH_NAME == 'dev') {
             sh './deploy.sh dev'
+            // or: sh 'docker-compose -f docker-compose.dev.yml up -d --build'
           } else if (env.BRANCH_NAME == 'main') {
             sh './deploy.sh prod'
+            // or: sh 'docker-compose -f docker-compose.prod.yml up -d --build'
           }
         }
       }
