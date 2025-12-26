@@ -1,0 +1,28 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs & temp
+logs/
+*.log
+tmp/
+
+# Envs & secrets
+.env
+*.pem
+
+# Build outputs
+bin/
+obj/
+
+# Dependencies
+node_modules/
+
+# Docker
+*.tar
+*.pid
+
+# IDE/editor
+.vscode/
+.idea/
+*.swp
